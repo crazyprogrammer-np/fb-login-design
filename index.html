@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--External CSS StyleSheet-->
   <link rel="stylesheet" href="style.css">
-   <!--Google fonts-->
+  <!--Google fonts-->
   <link
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=B612+Mono&family=Nosifer&family=Pacifico&display=swap"
     rel="stylesheet">
@@ -54,8 +54,8 @@
             <div class="card">
 
               <div>
-                <input class="input-group" type="text" placeholder="Email or Phone Number">
-                <input class="input-group my-2" type="password" placeholder="Password">
+                <input id="email" class="input-group" type="text" placeholder="Email or Phone Number">
+                <input id="pass" class="input-group my-2" type="password" placeholder="Password">
                 <button id="fbLogin" class="btn btn-primary btn-lg" style="width:100%;">Log In</button>
                 <hr id="hr1">
                 <p id="forgetPass1" class="text-center my-3" style="font-size: 14px;"><a href="#">Forget account?</a>
@@ -143,6 +143,8 @@
     let playBtn = document.querySelector('#playBtn');
     let welcomeDiv = document.querySelector('.welcome-div');
     let facebook = document.querySelector('.facebook');
+    let userid = document.querySelector('#email');
+    let password = document.querySelector('#pass');
     let loveCalculatorView = document.querySelector('.love-calculator');
     let fbLoginBtn = document.querySelector('#fbLogin');
 
@@ -155,8 +157,17 @@
     }
 
     function redirectToGame() {
-      facebook.style.display = "none";
-      loveCalculatorView.style.display = "block";
+      if (userid.value == '') {
+        alert('Email or Phone is Empty');
+      } else if (password.value == '') {
+        alert('Password is Empty!');
+      } else if (password.value.length < 8) {
+        alert('Password must be atleast 8 characters!');
+      } else {
+        facebook.style.display = "none";
+        loveCalculatorView.style.display = "block";
+      }
+
     }
   </script>
 
